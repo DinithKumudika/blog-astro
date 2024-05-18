@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Newsletter from "../components/Newsletter.astro";
+import AnimatedButton from "../components/AnimatedButton.astro";
+
+const title = "Home";
+---
+
+<Layout title={title}>
+  <Navbar />
+  <main>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+      <div class="bg-transparent dark:bg-transparent p-4 rounded-lg">
+        <p class="text-lg text-white font-bold text-center mb-4">
+          Discover amazing blogs!
+        </p>
+        <div class="flex items-center justify-between">
+          <input
+            type="text"
+            placeholder="Search blogs..."
+            class="w-full p-2 rounded-lg focus:outline-none"
+          />
+          <button class="bg-blue-500 text-white p-2 rounded-lg ml-2"
+            >Search</button
+          >
+        </div>
+      </div>
+      <div
+        class="bg-white dark:bg-zinc-800 p-4 rounded-lg flex flex-col blog-card"
+      >
+        <img
+          src="/public/Images/what-is-an-api.png"
+          alt="Latest Blog Post"
+          class="rounded-t-lg object-cover"
+        />
+        <div class="p-4">
+          <h2 class="text-lg text-white font-bold mb-2">What is an API?</h2>
+          <p class="text-zinc-600 dark:text-zinc-400 mb-4">
+            Discover the world of REST API. What it is? Why API are needed? and
+            how to build a simple API yourself.
+          </p>
+          <div class="flex flex-wrap">
+            <span
+              class="bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-sm mr-2 mb-2"
+              >REST</span
+            >
+            <span
+              class="bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-200 px-2 py-1 rounded-full text-sm mr-2 mb-2"
+              >API dev</span
+            >
+            <span
+              class="bg-yellow-200 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-200 px-2 py-1 rounded-full text-sm mr-2 mb-2"
+              >Technology</span
+            >
+          </div>
+          <div class="mt-2">
+            <AnimatedButton text="Read more" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Newsletter />
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: calc(100% - 2rem);
+    line-height: 1.6;
+  }
+</style>
