@@ -1,15 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import Newsletter from "../components/Newsletter.astro";
 import AnimatedButton from "../components/AnimatedButton.astro";
-
-const title = "Home";
 ---
 
-<Layout title={title}>
-  <Navbar />
-  <main>
+<Layout>
+  <MainLayout>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div class="bg-transparent dark:bg-transparent p-4 rounded-lg">
         <p class="text-lg text-white font-bold text-center mb-4">
@@ -60,15 +57,8 @@ const title = "Home";
         </div>
       </div>
     </div>
-  </main>
+  </MainLayout>
   <Newsletter />
 </Layout>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    max-width: calc(100% - 2rem);
-    line-height: 1.6;
-  }
-</style>
+

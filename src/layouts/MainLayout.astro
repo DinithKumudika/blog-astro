@@ -1,0 +1,23 @@
+---
+import Navbar from "../components/Navbar.astro"
+
+interface Props {
+  navbarVisible?: boolean;
+}
+
+const { navbarVisible = true } = Astro.props;
+---
+
+{navbarVisible && <Navbar/>}
+<main>
+    <slot/>
+</main>
+
+<style>
+    main {
+      margin: auto;
+      padding: 1rem;
+      max-width: calc(100% - 2rem);
+      line-height: 1.6;
+    }
+  </style>

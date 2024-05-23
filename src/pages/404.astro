@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import AnimatedButton from "../components/AnimatedButton.astro";
+import error404 from "../assets/404-error.png";
+---
+<Layout>
+    <MainLayout navbarVisible = {false}>
+        <div class="flex flex-col items-center justify-items-center gap-7">
+            <Image src={error404} alt="404" class="lg:w-1/3 md:w-1/2 max-sm:w-full"/>
+            <h2 class="text-white text-3xl">Page Not Found</h2>
+            <AnimatedButton text = "Go Back Home" rightToLeft={true}/>
+        </div>
+    </MainLayout>
+</Layout>

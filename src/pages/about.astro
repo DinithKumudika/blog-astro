@@ -1,20 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 const title = "about"
 ---
 <Layout title={title}>
-    <Navbar/>
-    <main>
+    <MainLayout>
         <p class="text-lg text-white">this is {title} page</p>
-    </main>
+	</MainLayout>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		max-width: calc(100% - 2rem);
-		line-height: 1.6;
-	}
 </style>
