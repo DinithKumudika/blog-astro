@@ -2,32 +2,27 @@
 import Layout from "../../layouts/Layout.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Card from "../../components/Card.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
 const title = "articles";
+
+const allBlogPosts: CollectionEntry<"blog">[] = await getCollection("blog");
 ---
 
 <Layout title={title}>
   <MainLayout>
     <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Semantic Kernel"
-        body="Building Generative AI apps with .NET"
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
+      {
+        allBlogPosts.map((blogPost) => (
+          <Card
+            href={"/posts/" + blogPost.slug.toString()}
+            title={blogPost.data.title}
+            body={blogPost.data.description}
+          />
+        ))
+      }
     </ul>
   </MainLayout>
 </Layout>

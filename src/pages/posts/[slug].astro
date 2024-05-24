@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostLayout from "../../layouts/postLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+     const allBlogPosts: CollectionEntry<'blog'>[] = await getCollection('blog');
+     const slugs = allBlogPosts.map(blogPost => (
+          { params: {slug: blogPost.slug}}
+     ));
+     return slugs;
+};
+
+const { slug } = Astro.params;
+const title = slug;
+---
+<Layout title={title}>
+     <MainLayout>
+          <PostLayout>
+               <h1 class="text-white">{slug}</h1>
+          </PostLayout>
+     </MainLayout>
+</Layout>

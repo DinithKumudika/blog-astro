@@ -1,6 +1,4 @@
 ---
-import type { boolean } from 'astro/zod';
-
 interface Props {
 	text: string;
   rightToLeft?: boolean;
@@ -10,10 +8,10 @@ const { text, rightToLeft = false } = Astro.props;
 ---
 <a
   href="/"
-  class="relative inline-flex items-center justify-center p-4 px-4 py-1 overflow-hidden font-medium button-color-primary transition duration-300 ease-out border-2 button-color-primary rounded-full shadow-md group"
+  class="relative inline-flex items-center border-button-primary justify-center p-4 px-4 py-1 overflow-hidden font-medium transition duration-300 ease-out border-2 button-color-primary rounded-full shadow-md group"
 >
   <span
-    class="absolute inset-0 flex items-center justify-center w-full h-full button-color-primary duration-300 -translate-x-full button-color-primary group-hover:translate-x-0 ease"
+    class="absolute inset-0 flex items-center justify-center w-full h-full text-button-primary duration-300 -translate-x-full group-hover:translate-x-0 ease"
   >
   {rightToLeft ?  <svg
       class="w-6 h-6"
@@ -45,14 +43,8 @@ const { text, rightToLeft = false } = Astro.props;
     </svg>}
   </span>
   <span
-    class="absolute flex items-center justify-center w-full h-full button-color-primary transition-all duration-300 transform group-hover:translate-x-full ease"
+    class="absolute flex items-center justify-center w-full h-full text-button-primary transition-all duration-300 transform group-hover:translate-x-full ease"
     >{text}</span
   >
   <span class="relative invisible">{text}</span>
 </a>
-
-<style>
-    .button-color-primary {
-        color: rgb(var(--accent-light));
-    }
-</style>
